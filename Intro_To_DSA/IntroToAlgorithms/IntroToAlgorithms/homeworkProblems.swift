@@ -84,6 +84,15 @@ func removeCharacter(s: String, c: Character) -> String {
 //Write an algorithm that removes all characters from a String contained within an input array of characters
 
 func removeMultipleCharacters(s: String, arr: [Character]) -> String {
-    return ""
+    var cleanString = ""
+    let sCharArr = s.characters
+    
+    for char in sCharArr {
+        for index in 0..<arr.count {
+            removeCharacter(s: s, c:arr[index])
+        }
+    }
+    
+    return cleanString
 }
 
