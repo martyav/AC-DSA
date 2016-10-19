@@ -12,7 +12,7 @@ func problemOne(arr: [Int]) {
 }
 ```
 
-problemOne(arr:) runtime: 
+problemOne(arr:) runtime: O(1) -- No matter how much stuff is in the parameter arr, the function will always do the same thing -- print the numbers 0 to 999. The function actually doesn't do anything with arr.
 
 
 ```swift
@@ -25,7 +25,7 @@ func problemTwo(arr: [Int]) {
 }
 ```
 
-problemTwo(arr:) runtime: 
+problemTwo(arr:) runtime: O(n^2) -- Nested loops add to the runtime at a rate of n to the number of loops. 2 loops, n to the power of 2 aka quadratically. 3 loops, cubic, etc. 
 
 
 ```swift
@@ -36,7 +36,7 @@ func problemThree(arr: [Int]) {
 }
 ```
 
-problemThree(arr:) runtime: 
+problemThree(arr:) runtime: O(1) -- This is just running one constant runtime function inside another constant runtime function   
 
 
 ```swift
@@ -47,7 +47,7 @@ func problemFour(arr: [Int]) {
 }
 ```
 
-problemFour(arr:) runtime: 
+problemFour(arr:) runtime: O(n^2) -- This is running 3 nested loops, but we'll call it n^2 because as far as I know we don't really care what constant the n is being raised to, just the order of magnitude of the runtime 
 
 
 ```swift
@@ -61,7 +61,7 @@ func problemFive(arr: [Int]) {
 }
 ```
 
-problemFive(arr:) runtime: 
+problemFive(arr:) runtime: O(n^2) -- This is the same as problemFour. Adding a second round of nested looping doesn't change what kind of runtime it is.
 
 
 ```swift
@@ -74,4 +74,4 @@ func problemSix(arr: [Int]) {
 }
 ```
 
-problemSix(arr:) runtime: 
+problemSix(arr:) runtime: O(n^2) -- This is n to the fourth power of nested looping but I don't think we need to report the exact constant when describing the runtime in bigO
