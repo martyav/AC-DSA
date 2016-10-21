@@ -224,7 +224,7 @@ myArr.remove(at: 4)
 //g
 myArr.reverse()
 
-//Runtime: O(n^2) because it has to run through the array and move everything over into a new array
+//Runtime: O(n) because it has to run through the array and move everything over
 
 //h
 let h = myArr.sorted(by: >)
