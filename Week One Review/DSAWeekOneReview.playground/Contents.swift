@@ -161,13 +161,13 @@ func problemI(isEnabled: Bool) {
     }
 }
 
-//Runtime: O(n) -- this would be constant, except that the bool is turning either 10 on or 1000000 on? But, on an individual basis, each case (10 or 1000000) is constant runtime...
+//Runtime: O(1) -- Linear is when the runtime scales as the input scales. But our input is always the same size
 
 //Arrays - the data structure
 //1) You have an array of 100 Strings (24 bytes each) at memory address 0ff3c0000.
 
-//a)What is the memory address of the 1st element?
-//b)What is the memory address of the 2nd element?
+//a)What is the memory address of the 1st element? 0ff3c0018
+//b)What is the memory address of the 2nd element? 0ff3c0000
 //c)What is the memory address of the 4th element?
 //d)What is the memory address of the 14th element?
 //e)What is the memory address of the 52nd element?
