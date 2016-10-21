@@ -1,12 +1,23 @@
 # Recursion Exercises
 - ### Multiply array
 
-Write a function called `multArr` that takes in an array of numbers as an argument and recursively multiplies together all of the values in the array.
+Write a function called 'multArr' that takes in an array of numbers as an argument and recursively multiplies together all of the values in the array.
 
 ```js
 multArr([2, 3, 5]); // returns 30
 multArr([5, 5, 1, 2]); //returns 50
 ```
+
+
+func multArr(_ arr: [Int]) -> Int {
+    var multiplyMe = 1
+    while arr.count > 0 {
+        var multiplyMe *= arr[0]
+        return multArr
+    }
+    return multiplyMe
+} 
+
 
 - ### Concatenate array
 

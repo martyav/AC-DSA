@@ -28,6 +28,53 @@ f) O(n^4)
 g) O(n^2 * log(n))
 */
 
+func O1() -> () {
+    print("My runtime is constant.")
+}
+
+func On(_ text:[String]) -> () {
+    for string in text {
+        print(string)
+    }
+}
+
+func Ologn(_ arr:[Int]) -> [Int] {
+    return arr.sorted()
+}
+
+func On2(xArr: [Int], yArr: [Int]) -> () {
+    for x in xArr {
+        for y in yArr {
+            print(x,y)
+        }
+    }
+}
+
+func On3(xArr: [Int], yArr: [Int], zArr: [Int]) -> () {
+    for z in zArr {
+        On2(xArr: xArr, yArr: yArr)
+    }
+}
+
+func On4(xArr: [Int], yArr: [Int]) -> () {
+    for x in xArr {
+        for y in yArr {
+            On2(xArr: xArr, yArr: yArr)
+        }
+    }
+}
+
+func On2Ologn(xArr: [Int], yArr: [Int]) -> [Int] {
+    //print(On2(xArr: Ologn(xArr), yArr: (Ologn(yArr))))
+    var newArr:[(Int,Int)] = []
+    for x in xArr {
+        for y in yArr {
+            newArr.append(x,y)
+        }
+    }
+    return Ologn([newArr as! Int])
+}
+
 /*
 2) Identify the runtimes of the following algorithms
 */
