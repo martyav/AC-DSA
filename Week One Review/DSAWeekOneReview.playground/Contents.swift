@@ -104,7 +104,7 @@ func problemB(myArr: [[Int]]) {
     }
 }
 
-//Runtime: O(n)
+//Runtime: O(n * m) -- Because the contains method is an O(m) operation
 
 func problemC(myArr: [Int]) -> Bool {
     if myArr.count < 10_000 {
@@ -126,7 +126,7 @@ func problemE(myArr: [Int]) -> [Int] {
     return myArr.filter{$0 > 5}.map{$0 * 3}.sorted(by: <)
 }
 
-//Runtime: O(n * m* logn) -- Filter is running through the array (O(n)) and generating a new, smaller array that map runs over (O(m)), which is then sorted (O(nlogn))
+//Runtime: O(nlogn) -- Filter is running through the array (O(n)) and generating a new, smaller array that map runs over (O(m)), which is then sorted (O(nlogn)...but because we're doing this stuff in a linear sequence, it's not multiplying anything by anything. It's additive. And sorted()'s runtime has the biggest order of magnitude, so we record the runtime as nlogn.)
 
 func problemF(myArr: Int) {
     for i in 0..<myArr {
@@ -140,7 +140,7 @@ func problemG(myArr: [[[[[[String]]]]]]) {
     print(myArr[0][0][0][0][0].contains("hi!"))
 }
 
-//Runtime: O(1)
+//Runtime: O(n) -- Because of the contains
 
 func problemH(arrOne: [Int], arrTwo: [Int]) {
     var counter = 0
@@ -153,7 +153,7 @@ func problemH(arrOne: [Int], arrTwo: [Int]) {
     }
 }
 
-//Runtime: O(n^4) -- Contains has to run through the whole array, right? And it's doing it twice on line 149
+//Runtime: O(n^3) -- Contains has to run through the whole array, right? And it's doing it twice on line 149...but that's just additive
 
 func problemI(isEnabled: Bool) {
     for _ in 0..<(isEnabled ? 10 : 1_000_000) {
