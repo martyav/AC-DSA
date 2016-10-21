@@ -51,14 +51,14 @@ func On2(xArr: [Int], yArr: [Int]) -> () {
 }
 
 func On3(xArr: [Int], yArr: [Int], zArr: [Int]) -> () {
-    for z in zArr {
+    for _ in zArr {
         On2(xArr: xArr, yArr: yArr)
     }
 }
 
 func On4(xArr: [Int], yArr: [Int]) -> () {
-    for x in xArr {
-        for y in yArr {
+    for _ in xArr {
+        for _ in yArr {
             On2(xArr: xArr, yArr: yArr)
         }
     }
@@ -66,13 +66,13 @@ func On4(xArr: [Int], yArr: [Int]) -> () {
 
 func On2Ologn(xArr: [Int], yArr: [Int]) -> [Int] {
     //print(On2(xArr: Ologn(xArr), yArr: (Ologn(yArr))))
-    var newArr:[(Int,Int)] = []
-    for x in xArr {
+    var newArr:[Int] = []
+    for _ in xArr {
         for y in yArr {
-            newArr.append(x,y)
+            newArr.append(y)
         }
     }
-    return Ologn([newArr as! Int])
+    return Ologn(newArr)
 }
 
 /*
