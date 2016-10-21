@@ -50,8 +50,8 @@ func On2(xArr: [Int], yArr: [Int]) -> () {
     }
 }
 
-func On3(xArr: [Int], yArr: [Int], zArr: [Int]) -> () {
-    for _ in zArr {
+func On3(xArr: [Int], yArr: [Int]) -> () {
+    for _ in xArr {
         On2(xArr: xArr, yArr: yArr)
     }
 }
@@ -59,21 +59,27 @@ func On3(xArr: [Int], yArr: [Int], zArr: [Int]) -> () {
 func On4(xArr: [Int], yArr: [Int]) -> () {
     for _ in xArr {
         for _ in yArr {
-            On2(xArr: xArr, yArr: yArr)
+            print(On2(xArr: xArr, yArr: yArr))
         }
     }
 }
 
-func On2Ologn(xArr: [Int], yArr: [Int]) -> [Int] {
+func On2Ologn(xArr: [Int], yArr: [Int]) -> ([Int]) {
     //print(On2(xArr: Ologn(xArr), yArr: (Ologn(yArr))))
     var newArr:[Int] = []
-    for _ in xArr {
+    for x in xArr {
+        newArr.append(x)
+        newArr.sorted()
         for y in yArr {
             newArr.append(y)
+            newArr.sorted()
         }
     }
-    return Ologn(newArr)
+    return newArr
 }
+
+print(On2Ologn(xArr: [0,8,5], yArr: [1,2,4]))
+//On4(xArr:[1,4,3], yArr:[2,5,99])
 
 /*
 2) Identify the runtimes of the following algorithms
@@ -87,7 +93,7 @@ func problemA(myString: String) {
     }
 }
  
-//Runtime: 
+//Runtime: O(n^2)
 
 func problemB(myArr: [[Int]]) {
     var otherArr = [[Int]]()
@@ -98,7 +104,7 @@ func problemB(myArr: [[Int]]) {
     }
 }
 
-//Runtime:
+//Runtime: O(n)
 
 func problemC(myArr: [Int]) -> Bool {
     if myArr.count < 10_000 {
@@ -108,19 +114,19 @@ func problemC(myArr: [Int]) -> Bool {
     }
 }
 
-//Runtime:
+//Runtime: O(1)
 
 func problemD(myArr: [Bool]) -> [Bool] {
     return myArr.map{!$0}
 }
 
-//Runtime:
+//Runtime: O(n)
 
 func problemE(myArr: [Int]) -> [Int] {
     return myArr.filter{$0 > 5}.map{$0 * 3}.sorted(by: <)
 }
 
-//Runtime:
+//Runtime: O(n * m* logn) -- Filter is running through the array (O(n)) and generating a new, smaller array that map runs over (O(m)), which is then sorted (O(nlogn))
 
 func problemF(myArr: Int) {
     for i in 0..<myArr {
@@ -128,13 +134,13 @@ func problemF(myArr: Int) {
     }
 }
 
-//Runtime:
+//Runtime: O(n)
 
 func problemG(myArr: [[[[[[String]]]]]]) {
     print(myArr[0][0][0][0][0].contains("hi!"))
 }
 
-//Runtime:
+//Runtime: O(1)
 
 func problemH(arrOne: [Int], arrTwo: [Int]) {
     var counter = 0
@@ -147,7 +153,7 @@ func problemH(arrOne: [Int], arrTwo: [Int]) {
     }
 }
 
-//Runtime:
+//Runtime: O(n^4) -- Contains has to run through the whole array, right? And it's doing it twice on line 149
 
 func problemI(isEnabled: Bool) {
     for _ in 0..<(isEnabled ? 10 : 1_000_000) {
@@ -155,7 +161,7 @@ func problemI(isEnabled: Bool) {
     }
 }
 
-//Runtime:
+//Runtime: O(n) -- this would be constant, except that the bool is turning either 10 on or 1000000 on? But, on an individual basis, each case (10 or 1000000) is constant runtime...
 
 //Arrays - the data structure
 //1) You have an array of 100 Strings (24 bytes each) at memory address 0ff3c0000.
