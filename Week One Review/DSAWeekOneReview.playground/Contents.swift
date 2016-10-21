@@ -166,14 +166,26 @@ func problemI(isEnabled: Bool) {
 //Arrays - the data structure
 //1) You have an array of 100 Strings (24 bytes each) at memory address 0ff3c0000.
 
-//a)What is the memory address of the 1st element? 0ff3c0018
-//b)What is the memory address of the 2nd element? 0ff3c0000
-//c)What is the memory address of the 4th element?
-//d)What is the memory address of the 14th element?
-//e)What is the memory address of the 52nd element?
-//f)What is the memory address of the 58th element?
+//a)What is the memory address of the 1st element? 0ff3c0000
+//b)What is the memory address of the 2nd element? 0ff3c0018
+//c)What is the memory address of the 4th element? 0ff3c0048
+//d)What is the memory address of the 14th element? 0ff3c0000
+//e)What is the memory address of the 52nd element? 0ff3c0000
+//f)What is the memory address of the 58th element? 0ff3c0000
 
+func convertToHex(_ num: Int) -> Int {
+    var hexedNum: Int = num
+    let singlesPlace = ((num) - 16) // this needs to be rewritten so that it keeps going until we get a single digit
+    let sixteensPlace = ((num/16)%16)
+    
+    let hexedString = String(sixteensPlace) + String(singlesPlace)
+    
+    hexedNum = Int(hexedString)!
+    
+    return hexedNum
+}
 
+convertToHex(72)
 
 //2) Identify and explain the runtimes for the following array operations:
 
@@ -182,36 +194,57 @@ var myArr = [13,41,3,13,13,12,12,1,9]
 //a)
 myArr.popLast()
 
+//Runtime: O(1) because it's just accessing the last element and it doesn't have to run thru the array to do that
+
 //b)
 myArr.contains(1)
+
+//Runtime: O(n) because it has to check the number against each element in the array
 
 //c
 myArr.index(of: 9)
 
+//RunTime: O(n) because it has to run through the array to find something...it's not grabbing index number 9, it's looking for the index of 9 if it's present in the array
+
 //d
 myArr.count
+
+//Runtime: O(n) because this has to count up each element...I think? It could also be O(1) if it's relying on knowing the index number of the last element in order to get the count! Ok, so Ben says Swift knows how much memory it has allocated for the array, so count is constant time.
 
 //e
 myArr.insert(8, at: 0)
 
+//Runtime: O(n) because it has to shift everything over
+
 //f
 myArr.remove(at: 4)
+
+//Runtime: O(n) because it also has to shift everything over
 
 //g
 myArr.reverse()
 
+//Runtime: O(n^2) because it has to run through the array and move everything over into a new array
+
 //h
 let h = myArr.sorted(by: >)
+
+//Runtime: O(nlogn)
 
 //i
 let i = myArr.map{$0 * 2}
 
+//Runtime: O(n) because map runs through everything
+
 //j
 let j = myArr.filter{$0>0}
+
+//Runtime: O(n) because it has to run through the array
 
 //k
 let k = myArr.reduce(0, +)
 
+//Runtime: O(n) because it's a lot like map, except everything is going into an element instead of an array
 
 //3) Given the array below write code that does the following:
 
