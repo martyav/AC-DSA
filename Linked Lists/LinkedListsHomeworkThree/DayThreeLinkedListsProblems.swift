@@ -25,6 +25,7 @@ class LinkedList<T: Equatable> {
     
     //empty list check
     func isEmpty() -> Bool {
+        guard head.key != nil else {return true}
         return false
     }
     
