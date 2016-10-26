@@ -58,14 +58,39 @@ class LinkedList<T: Comparable> {
     //Problem One
     //See Exercise One (https://github.com/C4Q/AC-DSA/blob/master/Linked%20Lists/LinkedListsDayTwo.md)
     func equals(otherList: LinkedList ) -> Bool {
-        return true
+        var ourListsCurrent = head
+        var otherListsCurrent = otherList.head
+        
+        let ourCount = self.count
+            print("our count is \(ourCount)")
+        let otherListsCount = otherList.count
+            print("other count is \(otherListsCount)")
+            
+        if ourCount != otherListsCount {
+             print(ourCount == otherListsCount)
+            return false
+        } else {
+            while ourListsCurrent.next != nil {
+                if ourListsCurrent.key != otherListsCurrent.key {
+                    print("the keys don't match, it's false")
+                    return false
+                } else {
+                ourListsCurrent = ourListsCurrent.next!
+                otherListsCurrent = otherListsCurrent.next!
+                continue
+                }
+            }
+            }
+            print("all the keys match, it's true")
+            return true
+        }
     }
-    
-}
+
 
 //Problem Two
 //See Exercise Three (https://github.com/C4Q/AC-DSA/blob/master/Linked%20Lists/LinkedListsDayTwo.md)
 
 func mergeSortedLists<T: Comparable>(listOne: LinkedList<T>, listTwo: LinkedList<T>) -> LinkedList<T> {
+    
     return LinkedList<T>()
 }
