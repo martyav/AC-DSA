@@ -91,6 +91,33 @@ class LinkedList<T: Comparable> {
 //See Exercise Three (https://github.com/C4Q/AC-DSA/blob/master/Linked%20Lists/LinkedListsDayTwo.md)
 
 func mergeSortedLists<T: Comparable>(listOne: LinkedList<T>, listTwo: LinkedList<T>) -> LinkedList<T> {
+    var oneCurrent = listOne.head
+    var twoCurrent = listTwo.head
     
-    return LinkedList<T>()
+    var oneHoldIt = listOne.head.next
+    var twoHoldIt = listTwo.head.next
+    
+////    var end = Node?
+////    end.next = nil
+//
+//    
+//    var rand = arc4random_uniform(2)
+//    
+//    if rand == 0 {
+//        while oneCurrent.next != nil {
+//            oneHoldIt = oneCurrent.next
+//            listOne.append(element: twoCurrent.key)
+//            var temp = twoCurrent // 3. ???
+//            // 4. profit!
+//        }
+//        return listOne
+//        
+//    } else {
+//        while twoCurrent.next != nil {
+//            twoHoldIt = twoCurrent.next
+//            listTwo.append(element: oneCurrent.key)
+//            var temp = oneCurrent
+//        }
+        return listTwo
+//    }
 }
