@@ -33,7 +33,7 @@ class LinkedList<T: Equatable> {
     
     //add link item
     func append(element key: T) {
-  
+        //
     }
     
     //print all keys for the class
