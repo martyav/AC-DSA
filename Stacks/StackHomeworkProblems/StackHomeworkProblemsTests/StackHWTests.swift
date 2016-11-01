@@ -37,8 +37,8 @@ class StackHomeworkProblemsTests: XCTestCase {
     
     
     func testLargest() {
-        XCTAssertTrue(largest(stack: myStack) == 30)
-        XCTAssertTrue(largest(stack: myOtherStack) == 120)
+        XCTAssertTrue(largest(myStack) == 30)
+        XCTAssertTrue(largest(myOtherStack) == 120)
     }
     
     func testSum() {

@@ -8,12 +8,34 @@
 
 import Foundation
 
+// A helper function that refills the stack
+
+//func helper(_ stack: Stack<Int>) -> Stack<Int> {
+//    var tempStash: Stack<Int>
+//    
+//    let current = stack.pop()
+//    guard let current == nil else {
+//        return tempStash
+//    }
+//    tempStash.push(element: current)
+//}
+
 
 //Problem One:
 //Find the largest integer in a Stack of Ints
 
-func largest(stack: Stack<Int>) -> Int {
-    return 0
+func largest(_ stack: Stack<Int>) -> Int {
+    var biggestNum = 0
+    let current = stack.pop()
+    
+    if current != nil {
+        if current! > biggestNum {
+            biggestNum = current!
+        }
+        return largest(stack)
+    } else {
+        return biggestNum
+    }
 }
 
 
