@@ -67,6 +67,59 @@ line.isEmpty()
 line.deQueue()
 line.isEmpty()
 
+class Stack<T> {
+    
+    private var arr = Array<T>()
+    
+    func pop() -> T? {
+        return arr.popLast()
+    }
+    
+    func push(element: T) {
+        arr.append(element)
+    }
+    
+    func peek() -> T? {
+        guard arr.count > 0 else {
+            return nil
+        }
+        return arr[arr.count - 1]
+    }
+    
+    func isEmpty() -> Bool {
+        return arr.count == 0
+    }
+}
+
+class Q2Stacks<T> {
+    private var enQstack = Stack<T>()
+    private var deQstack = Stack<T>()
+    
+    func enQueue(_ el:T) {
+        while deQstack.isEmpty() == false {
+            enQstack.push(element: deQstack.pop()!)
+        }
+    }
+    
+    func deQueue() -> T? {
+        while enQstack.isEmpty() == false {
+            deQstack.push(element: enQstack.pop()!)
+        }
+        return deQstack.pop()
+    }
+    
+    func peek() -> T? {
+        while enQstack.isEmpty() == false {
+            deQstack.push(element: enQstack.pop()!)
+        }
+        return deQstack.peek()
+    }
+    
+    func isEmpty() -> Bool {
+        return enQstack.isEmpty() && deQstack.isEmpty()
+    }
+}
+
 /*
 class Queue<T> {
     private var list = LinekdList<T>()
