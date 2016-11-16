@@ -24,11 +24,41 @@ let testArr2 = [[1,2,3,4],
                 [5,6,7,8]]
 
 let testArr2Out = [[5,1],
-                    [6,2],
-                    [7,3],
-                    [8,4]]
+                   [6,2],
+                   [7,3],
+                   [8,4]]
 
+let testArr3 = [[1,2],[3,4], [5,6]]
 
+func rotate(_ arr:[[Int]]) -> [[Int]] {
+    var newArr = [[Int]]()
+    var newInnards = [Int]()
+
+    for _ in 0..<arr[0].count {
+        newInnards = []
+        for _ in 0..<arr.count {
+            newInnards.append(1)
+        }
+    newArr.append(newInnards)
+    }
+    
+    for arrayIndex in 0..<arr.count {
+        for innerArrayIndex in 0..<arr[arrayIndex].count {
+            if innerArrayIndex < arr.count - 1 {
+                newArr[innerArrayIndex][(arr.count - 1) - arrayIndex] = arr[arrayIndex][innerArrayIndex]
+            } else {
+                newArr[innerArrayIndex][(arr.count - 1) - arrayIndex] = arr[arrayIndex][innerArrayIndex]
+            }
+        }
+    }
+    return newArr
+}
+
+print(rotate(testArr))
+print(testArrOut)
+print(" ")
+print(rotate(testArr2))
+print(testArr2Out)
 //Stacks
 
 //Implement a Stack using an Array
