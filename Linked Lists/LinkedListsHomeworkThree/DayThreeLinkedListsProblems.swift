@@ -31,18 +31,54 @@ class LinkedList<T: Equatable> {
     
     
     
-    //add link item
+    //add link item to end
     func append(element key: T) {
-        //
+        //make sure we actually have a list
+        guard head.key == nil else {return}
+        //create a new node
+        let new = Node<T>()
+        //fill that node
+        new.key = key
+        //set the next to nil
+        new.next = nil
+        //connect that node to the list
+        var current = head
+        
+        while current.next != nil {
+            current = current.next!
+        }
+        new.previous = current
+        
+        //reset the previous for current to point back to the node we just created
+        current.next = new
     }
     
     //print all keys for the class
     func printAllKeys() {
-
+        guard head.key == nil else {return}
+        var current = head
+        while current.key != nil {
+            print(current.key)
+            guard current.next == nil else {return}
+            current = current.next!
+        }
     }
     
     //obtain link at a specific index
     func getElement(at index: Int) ->Node<T>! {
+        guard head.next == nil else {return nil}
+        var indexCounter = 0
+        var current = head
+        while current.key != nil {
+            if indexCounter == index {
+                return current
+            } else {
+                indexCounter += 1
+                guard current.next == nil else {return current}
+                current = current.next!
+                continue
+            }
+        }
         return Node<T>()
     }
     

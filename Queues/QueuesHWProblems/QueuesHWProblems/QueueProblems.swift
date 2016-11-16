@@ -17,27 +17,28 @@ func sum(q: Queue<Int>) -> Int? {
     var sum = 0
     let tempQ = Queue<Int>()
     
-    if q.isEmpty() == true {
-        return nil
-    } else {
-            while q.isEmpty() == false {
-                let popped = q.deQueue()
-                sum += popped!
-                tempQ.enQueue(newElement: popped!)
-            }
-            while tempQ.isEmpty() == false {
-                let popped = tempQ.deQueue()
-                q.enQueue(newElement: popped!)
-            }
-            print(tempQ)
-            return sum
+    guard q.isEmpty() == true else {return nil}
+    
+    while q.isEmpty() == false {
+        let popped = q.deQueue()
+        sum += popped!
+        tempQ.enQueue(newElement: popped!)
     }
+    
+    while tempQ.isEmpty() == false {
+        let popped = tempQ.deQueue()
+        q.enQueue(newElement: popped!)
+    }
+    
+    print(tempQ)
+    return sum
 }
+
 
 //Find the smallest element in a queue
 func smallest<T:Comparable>(q: Queue<T>) -> T? {
-    var smallestSoFar:
-    T?
+    var smallestSoFar: T?
+    
     let tempQ = Queue<T>()
     
     if q.isEmpty() == true {
